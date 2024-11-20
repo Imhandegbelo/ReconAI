@@ -38,12 +38,12 @@ const resourcesData = [
 ];
 
 const Footer = () => (
-	<footer className="bg-[#D1E9FF] py-[5em] md:py-[12em]">
-		<div className="flex flex-col-reverse justify-center items-center lg:items-start lg:flex-row lg:justify-between w-9/12 mx-auto gap-[4em] lg:gap-0 align-top">
-			<div className="flex flex-col justify-center lg:max-w-[20%] align-center lg:justify-start gap-[0.5rem] lg:gap-6">
+	<footer className="bg-[#D1E9FF] py-9 md:py-16">
+		<div className="flex flex-col-reverse justify-center items-start lg:items-start md:flex-row md:justify-between w-10/12 mx-auto gap-6">
+			<div className="mx-auto flex flex-col justify-center lg:max-w-[20%] align-center lg:justify-start gap-[0.5rem] lg:gap-6">
 				<figure className="flex justify-start items-center flex-col lg:items-start">
 					<img
-						className="w-8/12 lg:w-10/12"
+						className=""
 						src={logoUpdate}
 						alt="Company logo"
 					/>
@@ -63,17 +63,17 @@ const Footer = () => (
 			</div>
 
 			{/* About us Tab */}
-			<div className="flex flex-col pt-[10px] xl:pt-0">
-				<h3 className="font-medium text-[#344054] text-[1.4em] md:text-[1.8em]  text-center lg:text-left">
+			<div className="w-full md:w-3/12 space-y-5">
+				<h3 className="font-medium text-[#344054] text-xl text-center md:text-left">
 					About Us
 				</h3>
 
-				<div className="flex flex-col gap-6 mt-6  text-center lg:text-left">
+				<div className="grid gap-4 md:gap-6 text-center md:text-left">
 					{aboutUsData.map((item) => (
 						<Link
 							key={uuid()}
 							to={item.path}
-							className="text-[#344054] text-[1.2em] md:text-[1.4em]  text-center lg:text-left"
+							className="text-[#344054] text-lg md:text-xl text-center md:text-left"
 						>
 							{item.name}
 						</Link>
@@ -82,17 +82,17 @@ const Footer = () => (
 			</div>
 
 			{/* Resources Tab */}
-			<div className="flex flex-col pt-[10px] xl:pt-0">
-				<h3 className="font-medium text-[#344054] text-[1.4em] text-center lg:text-left md:text-[1.8em]">
+			<div className="w-full md:w-3/12 space-y-6">
+				<h3 className="font-medium text-[#344054] text-xl text-center md:text-left">
 					Resources
 				</h3>
 
-				<div className="flex flex-col gap-6 mt-6  text-center lg:text-left">
+				<div className="grid gap-4 md:gap-6 text-center md:text-left">
 					{resourcesData.map((item) => (
 						<Link
 							key={uuid()}
 							to={item.path}
-							className="text-[#344054] text-center lg:text-left md:text-[1.4em] text-[1.2em]"
+							className="text-[#344054] text-lg md:text-xl text-center md:text-left"
 						>
 							{item.name}
 						</Link>

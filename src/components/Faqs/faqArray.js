@@ -1,4 +1,4 @@
-const faqArray = [
+export const faqArray = [
 	{
 		id: 0,
 		question: 'What is Account Pal and how does it work?',
