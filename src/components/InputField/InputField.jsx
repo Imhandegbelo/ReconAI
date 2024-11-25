@@ -1,53 +1,63 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
+import { useState } from "react";
+import { PropTypes } from "prop-types";
 
-export const InputField = ({
-	id,
-	resDesign,
-	type,
-	label,
-	name,
-	placeholder,
-}) => (
-	<div
-		className={`form-control ${resDesign} ${
-			type === 'checkbox'
-				? 'flex flex-row-reverse justify-end items-stretch gap-5 text-gray-500'
-				: ''
-		} pb-4`}
-	>
-		<label
-			htmlFor={id}
-			className={`block ${type === 'checkbox' ? '' : 'pb-1'} text-sm`}
-		>
-			{' '}
-			{label}{' '}
-		</label>
+export default function InputField({
+  id = "",
+  resDesign = "",
+  type = "",
+  label = "",
+  value = "",
+  placeholder = "",
+  onChange,
+  ...otherProps
+}) {
+  const [inputValue, setInputValue] = useState(value || "");
 
-		<input
-			id={id}
-			className={`${
-				type === 'checkbox' ? 'w-[18px]' : ''
-			}  w-full px-2.5 py-3.5 rounded-lg border border-gray-300 text-base`}
-			type={type}
-			name={name}
-			placeholder={placeholder}
-		/>
-	</div>
-);
+  return (
+    <div
+      className={`form-contro/l ${resDesign} ${
+        type === "checkbox"
+          ? "flex flex-row-reverse justify-end items-stretch gap-5 text-gray-600"
+          : ""
+      } pb-4`}
+    >
+      <label
+        htmlFor={id}
+        className={`block text-sm ${type === "checkbox" ? "" : "pb-1"}`}
+      >
+        {label}
+      </label>
+
+      <input
+        id={id}
+        className={`${
+          type === "checkbox" ? "w-[16px]" : ""
+        }  w-full px-2.5 py-3.5 rounded-lg border border-gray-300 text-base`}
+        type={type}
+        value={value || inputValue}
+        onChange={(e) => {
+          setInputValue(e.target.value);
+          onChange && onChange(e.target.value);
+        }}
+        placeholder={placeholder}
+        {...otherProps}
+      />
+    </div>
+  );
+}
 
 InputField.defaultProps = {
 	placeholder: '',
 	resDesign: 'w-full',
 };
 
-InputField.propTypes = {
-	id: PropTypes.string.isRequired,
-	resDesign: PropTypes.string,
-	type: PropTypes.string.isRequired,
-	label: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
-	placeholder: PropTypes.string,
-};
+// InputField.propTypes = {
+// 	id: PropTypes.string.isRequired,
+// 	resDesign: PropTypes.string,
+// 	type: PropTypes.string.isRequired,
+// 	label: PropTypes.string.isRequired,
+// 	name: PropTypes.string.isRequired,
+// 	placeholder: PropTypes.string,
+// };
 
-export default InputField;
+// export default InputField;

@@ -1,61 +1,94 @@
-import React from 'react';
-import { InputField } from '../InputField/InputField';
-import { TextareaField } from '../TextareaField/TextareaField';
-// import { Button } from './Button';
+import { useState } from "react";
+import  InputField  from "../InputField/InputField";
+// import {} from "../InputField"
+import { TextareaField } from "../TextareaField/TextareaField";
+// import Button from "../Button";
 
 export const Form = () => {
-	const onSubmit = (e) => {
-		e.preventDefault();
-	};
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    message: "",
+    isSubscribed: false,
+  });
 
-	return (
-		<form className="pt-[30px] sm:flex sm:flex-wrap " onSubmit={onSubmit}>
-			<InputField
-				id="first-name"
-				resDesign="sm:w-3/6 sm:pr-[8px]"
-				type="input"
-				label="First Name"
-				name="first name"
-				placeholder="First Name"
-				val="firstName"
-			/>
-			<InputField
-				id="last-name"
-				resDesign="sm:w-3/6 sm:pl-[8px]"
-				type="input"
-				label="Last Name"
-				name="last name"
-				placeholder="Last Name"
-				val="lastName"
-			/>
-			<InputField
-				id="email"
-				type="email"
-				label="Email"
-				name="email"
-				placeholder="olivia@zuri.com"
-				val="email"
-			/>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
 
-			<TextareaField id="message" label="Message" val="message" />
+  return (
+    <form className="pt-10 sm:flex sm:flex-wrap" onSubmit={handleSubmit}>
+      <InputField
+        id="firstName"
+        resDesign="sm:w-3/6 sm:pr-[8px]"
+        type="text"
+        label="First Name"
+        value={formData.firstName}
+        placeholder="First Name"
+        onChange={(value) => setFormData({ ...formData, firstName: value })}
+      />
+      <InputField
+        id="lastName"
+        resDesign="sm:w-3/6 sm:pl-[8px]"
+        type="text"
+        label="Last Name"
+        value={formData.lastName}
+        placeholder="Last Name"
+        onChange={(value) => setFormData({ ...formData, lastName: value })}
+      />
+      <InputField
+        id="email"
+        type="email"
+        label="Email"
+        value={formData.email}
+        placeholder="olivia@zuri.com"
+        onChange={(value) => setFormData({ ...formData, email: value })}
+      />
 
-			<button
-				className=" w-full text-lg my-4 h-[44px] rounded-lg text-white bg-dark-blue"
-				type="submit"
-				value="Send Message"
-			>
-				Send Message
-			</button>
+      <TextareaField
+        id="message"
+        label="Message"
+        value={formData.message}
+        onChange={(value) => setFormData({ ...formData, message: value })}
+      />
 
-			<InputField
-				id="checkbox"
-				type="checkbox"
-				label="Subscribe to our newsletter"
-				name="newsletter"
-				val="permission"
-			/>
-		</form>
-	);
+      <button
+        className="w-full text-lg my-4 h-[44px] rounded-lg text-white bg-sky-500"
+        type="submit"
+        value="Send Message"
+      >
+        Send Message
+      </button>
+
+      <div className="flex flex-row-reverse justify-end items-stretch gap-5 text-gray-600 pb-4">
+        <label
+          htmlFor="Subscribe"
+          // className={`block text-sm ${type === "checkbox" ? "" : "pb-1"}`}
+        >
+          Subscribe to our newsletter
+        </label>
+
+        <input
+          id="Subscribe"
+          className="w-[16px] w-full px-2.5 py-3.5 rounded-lg border border-gray-300 text-base"
+          type={type}
+          value={formData.isSubscribed}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+      </div>
+
+      {/* <InputField
+        id="checkbox"
+        type="checkbox"
+        label="Subscribe to our newsletter"
+        name="newsletter"
+        vaule={formData.isSubscribed}
+        onChange={(value) => setFormData({ ...formData, isSubscribed: value })}
+      /> */}
+    </form>
+  );
 };
 
 export default Form;

@@ -12,7 +12,7 @@ const ContactUs = () => (
 
 		<main className="bg-very-light-blue flex flex-col justify-center items-center py-[50px] px-[30px] ">
 			<div className="info-container lg:flex lg:flex-row lg:gap-7 xl:max-w-[1024px] xl:gap-14 min-[1440px]:max-w-[1280px] min-[1440px]:justify-around ">
-				<div className="lg:w-[70%] xl:w-[60%] pt-[35px] min-[1440px]:w-[50%]">
+				<div className="lg:w-[70%] xl:w-[60%] min-[1440px]:w-[50%]">
 					<h1 className=" text-4xl font-semibold w-full font-sans pb-3">
 						Get in Touch
 					</h1>

@@ -7,11 +7,11 @@ export default function FaqComponent() {
   return (
     <>
       {faqArray.map((faq, index) => (
-        <div key={`faq-${index+1}`} className="w-full border-b border-sky-400 text-sm my-2c">
+        <div key={`faq-${index+1}`} className="w-full border-b border-sky-400 my-2c">
           <div
           onClick={() =>
             index === isOpen ? setIsOpen(-1) : setIsOpen(index)
-          } className="flex items-center justify-between">
+          } className="flex items-center text-base justify-between">
             <p>{faq.question}</p>
             <button
               onClick={() =>
@@ -24,7 +24,7 @@ export default function FaqComponent() {
           </div>
           <div
             className={`${
-              isOpen === index ? "block bg-sky-50 py-2 mb-2" : "hidden"
+              isOpen === index ? "block text-gray-600 text-base py-2 mb-2" : "hidden"
             }`}
           >
             {faq.answer}

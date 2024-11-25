@@ -24,8 +24,8 @@ import {
   whatAccountPalDoesData,
   pickPlanData,
 } from "../../data/LandingData";
-import Faqs from "../../components/Faqs";
-import FaqComponent from "../../components/FaqComponent"
+import FaqComponent from "../../components/FaqComponent";
+import ButtonLink from "../../components/ButtonLink";
 
 const data = {
   rows: [
@@ -87,11 +87,11 @@ const config = {
 
 export default function LandingPage() {
   return (
-    <div>
+    <div className="bg-[#F9FAFB] max-w-[1440px] mx-auto">
       <NavigationBar />
       <div>
-        <div className="bg-white flex flex-col md:flex-row justify-between w-full md:w-[95%] lg:w-[80%] my-[3em] lg:my-[5em] h-[40vh] py-[2em] px-[1em] mx-auto  ">
-          <div className="w-full md:w-[50%] md:mt-[3em] lg:mt-[2em] lg:w-[45%] space-y-[1em] leading-6">
+        <div className="bg-white flex flex-col md:flex-row justify-between w-full py-[3em] px-[1rem] lg:px-24 mx-auto">
+          <div className="w-full md:w-[50%]/ md:mt-[3em] lg:mt-[2em] lg:w-[45%] space-y-[1em] leading-6">
             <h1 className="text-[#101828] text-3xl md:text-4xl lg:text-6xl font-semibold  ">
               Account
               <span className="text-[#1570EF]"> Reconciliations</span> Made Easy
@@ -136,12 +136,12 @@ export default function LandingPage() {
       <div className="bg-[#F9FAFB] flex flex-col gap-y-[24px] md:gap-y-[30px] md:mt-[3em] md:z-50 md:relative">
         <div className="bg-[#F9FAFB]">
           <div className="pt-[30px] flex flex-col gap-y-[1px] items-center px-[44px] md:px-0 ">
-            <h2 className="font-semibold text-[#101828] md:text-4xl text-xl text-center">
+            <h2 className="text-[#101828] font-semibold text-2xl md:text-3xl lg:text-[36px] text-center">
               How it works
             </h2>
           </div>
 
-          <div className="flex justify-center items-center px-4 my-[2em] md:my-[4em]">
+          <div className="flex justify-center items-center px-[1rem] my-[2em] md:my-[4em]">
             <img src={howItWorks} alt="how it works" />
           </div>
         </div>
@@ -149,9 +149,9 @@ export default function LandingPage() {
 
       <div className="bg-[#F9FAFB]">
         <div className="pt-10 text-center">
-          <h1 className="text-[#101828] font-semibold text-lg md:text-4xl">
+          <h2 className="text-[#101828] font-semibold text-2xl md:text-3xl lg:text-[36px] text-center">
             Pick Your Plan
-          </h1>
+          </h2>
           <p className="text-gray-500">
             Choose a plan that suits your Business
           </p>
@@ -194,7 +194,7 @@ export default function LandingPage() {
       </div>
 
       <div className="bg-[#EFF8FF] flex flex-col items-center py-10 md:py-16 px-[44px] xl:px-0">
-        <h2 className="text-[#101828] md:pt-16 text-center font-semibold text-xl xl:text-4xl">
+        <h2 className="text-[#101828] font-semibold text-2xl md:text-3xl lg:text-[36px] text-center">
           Cutting-edge features for advanced analytics
         </h2>
 
@@ -216,7 +216,7 @@ export default function LandingPage() {
       </div>
 
       <div className=" bg-[#F9FAFB] md:mt-0  p-[1em] md:p-[3em] text-left md:text-center py-6 md:py-12 lg:py-16">
-        <h2 className="text-[#101828] font-semibold text-lg md:text-2xl lg:text-[36px] px-[44px] md:px-0">
+        <h2 className="text-[#101828] font-semibold text-2xl md:text-3xl lg:text-[36px] text-center">
           Why Choose reconcile.<span className="text-[#2E90FA]">AI</span>?
         </h2>
 
@@ -227,9 +227,9 @@ export default function LandingPage() {
               key={item.id}
             >
               <div className="md:text-center space-y-[1em]">
-                <h2 className="font-semibold text-[#101828]  text-xl lg:text-2xl ">
+                <h3 className="font-semibold text-[#101828] text-lg lg:text-2xl ">
                   {item.title}
-                </h2>
+                </h3>
                 <p className="text-[#667085] flex justify-center font-normal text-md  md:text-sm md:text-center sm:text-xs">
                   {item.content}
                 </p>
@@ -240,9 +240,9 @@ export default function LandingPage() {
       </div>
 
       <div className="bg-[#F9FAFB] flex flex-col items-center">
-        <h1 className="text-[#101828] font-semibold text-[24px] md:text-[36px] text-center pb-[24px] md:pb-[32px] pt-[48px]">
+        <h2 className="text-[#101828] font-semibold text-2xl md:text-3xl lg:text-[36px] text-center py-12">
           What our users are saying
-        </h1>
+        </h2>
         <div className="w-[276px] md:w-[540px] md:h-[206px] rounded-2xl border border-[#98A2B3] flex flex-col items-center gap-[6px]">
           <p className="text-[#667085] text-[16px] font-medium px-[8px] pt-[18px] text-center">
             As an account that struggles to balance account statement
@@ -258,19 +258,14 @@ export default function LandingPage() {
         <img
           src={userImage}
           alt="What our users are saying"
-          className="hidden md:flex object-contain md:pt-[15px] md:px-[54px] xl:px-0 xl:py-[84px]"
-        />
-        <img
-          src={userImage}
-          alt="What our users are saying"
-          className=" md:hidden object-contain py-[24px] px-[44px]"
+          className="md:pt-[15px] md:px-[54px] xl:px-0 xl:py-[84px]"
         />
       </div>
 
-      <div className="bg-[#F9FAFB] md:py-[3em] md:pb-[5em] py-[1em] lg:max-w-full space-y-[5em]">
+      <div className="bg-[#F9FAFB] md:py-[3em] lg:max-w-full space-y-[5em]">
         <div className="lg:px-[50px]  px-[14px] ">
           <div className="leading-[20px] my-[2em]">
-            <h2 className="font-semibold text-xl md:text-3xl text-center">
+            <h2 className="text-[#101828] font-semibold text-2xl md:text-3xl lg:text-[36px] text-center">
               Frequently Asked Questions
             </h2>
             <p className="text-[#667085] text-center py-4">
@@ -278,11 +273,11 @@ export default function LandingPage() {
             </p>
           </div>
           <div className="md:w-[80%] text-xs md:text-md leading-[200%] mx-auto">
-						<FaqComponent />
+            <FaqComponent />
           </div>
         </div>
 
-        <div className="bg-[#F2F4F7] md:rounded-md flex flex-col items-center w-full md:w-[80%] lg:w-[60%] mx-auto  py-[3em] md:py-[2em] ">
+        <div className="bg-[#F2F4F7] md:rounded-md flex flex-col items-center w-full md:w-[80%] lg:w-[60%] mx-auto py-[3em] md:py-[2em] ">
           <img
             src={getInTouch}
             alt="Get in touch"
@@ -294,7 +289,7 @@ export default function LandingPage() {
           <p className="font-normal text-[#667085] text-[10px] md:text-[18px] pb-[24px] text-center px-[44px] md:px-0">
             Can&apos;t find the answer you&apos;re looking for?
           </p>
-          <Button path="/faqs" title="View more" />
+          <Button path="/contact" title="Get in touch" />
         </div>
       </div>
       <div className="text-center bg-[#F2F4F7] py-[3em] md:py-[3em]  ">
@@ -305,8 +300,8 @@ export default function LandingPage() {
           Join over 4,000 startups already growing with reconcileAI
         </p>
         <div className="flex space-x-12 justify-center mt-9 ">
-          <Button path="" isPrimary={false} title="Learn More" />
-          <Button path="" title="Get in touch" />
+          <ButtonLink path="" isPrimary={false} title="Learn More" />
+          <ButtonLink path="" title="Get in touch" />
         </div>
       </div>
       <Footer />
