@@ -1,7 +1,7 @@
 import { useState } from "react";
-import  InputField  from "../InputField/InputField";
+import  InputField  from "../InputField";
 // import {} from "../InputField"
-import { TextareaField } from "../TextareaField/TextareaField";
+import { TextareaField } from "../TextareaField";
 // import Button from "../Button";
 
 export const Form = () => {
@@ -62,31 +62,22 @@ export const Form = () => {
         Send Message
       </button>
 
-      <div className="flex flex-row-reverse justify-end items-stretch gap-5 text-gray-600 pb-4">
+      <div className="w-full flex flex-row-reverse gap-5 text-gray-600 pb-4">
         <label
           htmlFor="Subscribe"
-          // className={`block text-sm ${type === "checkbox" ? "" : "pb-1"}`}
+          className="text-s w-full"
         >
           Subscribe to our newsletter
         </label>
 
         <input
           id="Subscribe"
-          className="w-[16px] w-full px-2.5 py-3.5 rounded-lg border border-gray-300 text-base"
-          type={type}
+          className="w-[1.3rem] h-[1.3rem] accent-sky-600"
+          type="checkbox"
           value={formData.isSubscribed}
           onChange={(e) => setInputValue(e.target.value)}
         />
       </div>
-
-      {/* <InputField
-        id="checkbox"
-        type="checkbox"
-        label="Subscribe to our newsletter"
-        name="newsletter"
-        vaule={formData.isSubscribed}
-        onChange={(value) => setFormData({ ...formData, isSubscribed: value })}
-      /> */}
     </form>
   );
 };

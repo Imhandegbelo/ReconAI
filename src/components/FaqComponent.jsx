@@ -1,5 +1,5 @@
 import { useState } from "react";
-import faqArray from "./faqArray.json";
+import faqArray from "../data/faqArray.json";
 
 export default function FaqComponent() {
   const [isOpen, setIsOpen] = useState(-1);

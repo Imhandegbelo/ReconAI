@@ -10,12 +10,12 @@ const UserOrder = ({
 	date,
 	balance,
 }) => {
-	<div className="user pb-3 flex justify-between order-details ">
-		<div className="order-name">{name}</div>
-		<div className="order-name">{description}</div>
-		<div className="order-name text-[#F04438]">{withdrawals}</div>
-		<div className="order-name text-[#12B76A]">{deposit}</div>
-		<div className="order-name">{date}</div>
+	<div className="border-bottom border-[#cccccc57] pb-3 flex justify-between">
+		<div className="w-[18%] md:w-[12%] mx-[0.5em]">{name}</div>
+		<div className="w-[18%] md:w-[12%] mx-[0.5em]">{description}</div>
+		<div className="w-[18%] md:w-[12%] mx-[0.5em] text-[#F04438]">{withdrawals}</div>
+		<div className="w-[18%] md:w-[12%] mx-[0.5em] text-[#12B76A]">{deposit}</div>
+		<div className="w-[18%] md:w-[12%] mx-[0.5em]">{date}</div>
 		<div className="order-action">$12,000</div>
 	</div>;
 };

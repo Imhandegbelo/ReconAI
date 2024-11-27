@@ -7,7 +7,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import FileCopyOutlinedIcon from '@mui/icons-material/FileCopyOutlined';
 import { useNavigate } from 'react-router-dom';
 import Transactions from '../Transactions/Transactions';
-import CurrentNav from '../../../../components/DashBoardCurrentNav/DashCurrentNav';
+import CurrentNav from '../../../../components/DashCurrentNav';
 import { useAuth } from '../../../../Store/Context';
 import ok from '../../../../assets/Ok.png';
 import ScrollToTop from '../../../../components/ScrollToTop';

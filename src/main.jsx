@@ -6,7 +6,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import LandingPage from "./pages/LandingPage";
+import LandingPage from "./pages/LandingPage.jsx";
 import AboutUs from "./pages/AboutUs";
 import AccountBalanceReport from "./pages/AccountBalanceReport";
 import BlogPost from "./pages/BlogPost";
@@ -21,12 +21,12 @@ import Resources from "./pages/Resources";
 import UploadAccountsStatementReady from "./pages/UploadAccountsStatementReady";
 import Userupload from "./pages/UserUpload";
 import UploadedAccountStatementReady from "./pages/UploadedAccountStatementReady";
-import UpoadingSalesRecord from "./pages/UpoadingSalesRecord";
+import UploadingSalesRecord from "./pages/UploadingSalesRecord";
 import Teams from "./pages/Teams";
 import History from "./pages/History";
 import DashBoard from "./pages/Dashboard";
 import Gpt3 from "./pages/Gpt-3";
-import Blogs from "./pages/Blogs/Index";
+import Blogs from "./pages/Blogs";
 // import DashboardMain from './pages/Dashboard/DashboardMain/DashboardMain';
 // import Upload from './pages/Dashboard/DashboardMain/UploadFile/Upload';
 import UploadReady from "./pages/Dashboard/DashboardMain/UploadReady/UploadReady";
@@ -58,7 +58,10 @@ const router = createBrowserRouter([
     path: "/accountbalancereport",
     element: <AccountBalanceReport />,
   },
-
+  {
+    path: "/blogs",
+    element: <Blogs />,
+  },
   {
     path: "/blog/:slug",
     element: <BlogPost />,
@@ -156,8 +159,8 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/upoadingsalesrecord",
-    element: <UpoadingSalesRecord />,
+    path: "/uploadingsalesrecord",
+    element: <UploadingSalesRecord />,
   },
 
   {
@@ -167,10 +170,6 @@ const router = createBrowserRouter([
   {
     path: "/Gpt-3",
     element: <Gpt3 />,
-  },
-  {
-    path: "/blogs",
-    element: <Blogs />,
   },
   {
     path: "/privacy",

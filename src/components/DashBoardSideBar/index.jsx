@@ -5,12 +5,11 @@ import AddIcon from '@mui/icons-material/Add';
 // import SettingsIcon from '@mui/icons-material/Settings';
 import PersonIcon from '@mui/icons-material/Person';
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
-import './DashboardSidebar.css';
 import { Link } from 'react-router-dom';
 
 function DashBoardSideBar() {
 	return (
-		<div className=" side-bar hidden md:fixed top-0 z-1  md:flex justify-between flex-col md:w-[20%] lg:w-[10%] h-[100vh] bg-[#1570EF] text-white pb-[4em] pt-[7em] pl-[1em] ">
+		<div className="side-bar hidden md:fixed top-0 z-1  md:flex justify-between flex-col md:w-[20%] lg:w-[10%] h-[100vh] bg-[#1570EF] text-white pb-[4em] pt-[7em] pl-[1em] ">
 			<div className="flex flex-col w-[95%] md:text-[0.8em] lg:text-[1em] md:gap-6 lg:gap-6 xl:text-[0.8em]">
 				<Link to="/dashboard/home">
 					<div className="flex sidenav-nav space-x-1 ">
@@ -18,7 +17,7 @@ function DashBoardSideBar() {
 					</div>
 				</Link>
 
-				<div className="flex  sidenav-nav space-x-1 ">
+				<div className="flex justify-start items-center w-full p-[0.5em] rounded sidenav-nav space-x-1 hover:text-[#175cd3] hover:bg-white">
 					<AddIcon sx={{ fontSize: 20 }} />
 					<p>Import Data</p>
 				</div>
