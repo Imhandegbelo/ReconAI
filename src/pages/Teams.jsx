@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../components/NavigationBar";
 import Footer from "../components/Footer";
 import ourteam from "../assets/images/teams/ourteam.png";
@@ -14,191 +13,159 @@ import fb from "../assets/images/teams/fb.png";
 import ln from "../assets/images/teams/ln.png";
 import tw from "../assets/images/teams/tw.png";
 import ScrollToTop from "../components/ScrollToTop";
+import { Link } from "react-router-dom";
 
 function Teams() {
+  const teams = [
+    {
+      name: "Oluwasegun Akinshola",
+      avatar: one,
+      position: "Chief Drill Master",
+    },
+    {
+      name: "Dorathy Nkatha",
+      avatar: two,
+      position: "Assist. Drill Master",
+    },
+    {
+      name: "Maureen Ehiosun",
+      avatar: three,
+      position: "Design PM Lead",
+    },
+    {
+      name: "Olatunji David",
+      avatar: four,
+      position: "Frontend PM Lead",
+    },
+    {
+      name: "Abdul Ikumapayi",
+      avatar: five,
+      position: "Backend Track Lead",
+    },
+    {
+      name: "Esther Idowu",
+      avatar: two,
+      position: "Sales & Marketing Lead",
+    },
+    {
+      name: "Emmanuel Job",
+      avatar: seven,
+      position: "Design Track Lead",
+    },
+    {
+      name: "Qeenethe Oluchi",
+      avatar: eight,
+      position: "Sales & Marketing Lead",
+    },
+    {
+      name: "Hakeem Abdulrahmon",
+      avatar: nine,
+      position: "Frontend Lead",
+    },
+  ];
+
   return (
-    <div>
+    <div className="font-lexend">
       <ScrollToTop />
       <Navbar />
-      <div className="px-[44px] xl:px-[72px] mt-8">
-        <div className="lg:flex lg:flex-row md:flex md:flex-row  flex-col  grid justify-items-center">
-          <div className="font-lexend lg:mt-24 md:mt-24">
+      <div className="px-9 md:px-14 lg:px-20 py-8">
+        <div className="flex flex-col gap-4 md:flex-row justify-between">
+          <div className="flex flex-col gap-4 justify-center">
             <button
               type="button"
-              className="rounded-lg lg:ml-2 ml-16 md:ml-2 text-white bg-blue-500 text-lg px-4 py-2"
+              className="hidden rounded-lg w-1/2 lg:w-1/3 text-white bg-blue-500 text-lg px-4 py-2"
             >
               Meet the team
             </button>
-            <h2 className="lg:text-5xl text-2xl font-semibold mt-4 lg:text-left md:text-left text-center">
-              Meet our leadership <br className="lg:hidden" /> team, great{" "}
-              <br className="" /> personalities who work
-              <br className="lg:hidden" />
-              hard to
-              <br className="hidden lg:block" /> empower our{" "}
-              <br className="lg:hidden" />
-              teams.
-            </h2>
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold max-w-[640px] text-center md:text-left">
+              Meet our leadership team, great personalities who work hard to
+              empower our teams.
+            </h1>
           </div>
           <div>
             <img
-              alt=""
               src={ourteam}
-              className="ml-24 hidden lg:block md:block md:ml-8"
+              alt="teamwork"
+              className="hidden md:block"
             />
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center">
-          <div className="flex flex-row lg:gap-36 gap-2">
-            <div className=" flex flex-col items-center">
-              <img alt="" src={one} className="lg:w-40 lg:h-40 w-3/4" />
-              <h3 className="text-[12px] font-[500] lg:text-[16px] md:text-[16px]">
-                Oluwasegun Akinshola
-              </h3>
-              <h4 className="text-blue-400 text-[10px] font-[400] lg:text-[14px] md:text-[14px]">
-                cheif Drill-Master
-              </h4>
-              <div className="mt-4 flex flex-row gap-4">
-                <img alt="" src={tw} className="w-2/4 h-2/4" />
-                <img alt="" src={ln} className="w-2/4 h-2/4" />
-                <img alt="" src={fb} className="w-2/4 h-2/4" />
+        <div className="mt-12 flex flex-col gap-10 items-center">
+          <div className="flex flex-row gap-2 lg:gap-36">
+            {teams.splice(0,2).map((team) => (
+              <div className=" flex flex-col gap-1 items-center">
+                <img alt="" src={team.avatar} className="lg:w-40 lg:h-40 w-3/4" />
+                <h3 className="text-xs font-medium md:text-base">
+                  {team.name}
+                </h3>
+                <h4 className="text-blue-400 text-[10px] md:text-sm">
+                  {team.position}
+                </h4>
+                <div className="mt-4 flex flex-row gap-4">
+                  <Link to="#" className="hover:scale-125">
+                    <img alt="twitter logo" src={tw} className="w-6" />
+                  </Link>
+                  <Link to="#" className="hover:scale-125">
+                    <img alt="linkedin logo" src={ln} className="w-6" />
+                  </Link>
+                  <Link to="#" className="hover:scale-125">
+                    <img alt="facebook logo" src={fb} className="w-6" />
+                  </Link>
+                </div>
               </div>
-            </div>
+            ))}
 
-            <div className="flex flex-col items-center">
-              <img alt="" src={two} className="lg:w-40 lg:h-40 w-3/4" />
-              <h3 className="text-[12px] font-[500] lg:text-[16px] md:text-[16px]">
-                Dorothy Nkatha
-              </h3>
-              <h4 className="text-blue-400 text-[10px] font-[400] lg:text-[14px] md:text-[14px]">
-                Assist Drill-Master
-              </h4>
-              <div className="mt-4 flex flex-row gap-4">
-                <img alt="" src={tw} className="w-2/4 h-2/4" />
-                <img alt="" src={ln} className="w-2/4 h-2/4" />
-                <img alt="" src={fb} className="w-2/4 h-2/4" />
-              </div>
-            </div>
           </div>
 
-          <div className="lg:flex lg:flex-row grid grid-cols-2 lg:gap-36 mt-12 gap-2">
-            <div className="flex flex-col items-center">
-              <img alt="" src={three} className="lg:w-40 lg:h-40 w-3/4" />
-              <h3 className="text-[12px] font-[500] lg:text-[16px] md:text-[16px]">
-                Maureen Ehiosun
+          <div className="grid grid-cols-2 lg:grid-flow-col gap-4 lg:gap-20">
+            {teams.splice(0,4).map((person)=>(
+              <div className="flex flex-col gap-1 items-center">
+              <img alt="" src={person.avatar} className="lg:w-40 lg:h-40 w-3/4" />
+              <h3 className="text-xs font-medium md:text-base">
+                {person.name}
               </h3>
-              <h4 className="text-blue-400 text-[10px] font-[400] lg:text-[14px] md:text-[14px]">
-                Design PM Lead
+              <h4 className="text-blue-400 text-[10px] md:text-sm">
+                {person.position}
               </h4>
               <div className="mt-4 flex flex-row gap-4">
-                <img alt="" src={tw} className="w-2/4 h-2/4" />
-                <img alt="" src={ln} className="w-2/4 h-2/4" />
-                <img alt="" src={fb} className="w-2/4 h-2/4" />
+                <Link to="#" className="hover:scale-125">
+                  <img alt="twitter logo" src={tw} className="w-6" />
+                </Link>
+                <Link to="#" className="hover:scale-125">
+                  <img alt="linkedin logo" src={ln} className="w-6" />
+                </Link>
+                <Link to="#" className="hover:scale-125">
+                  <img alt="facebook logo" src={fb} className="w-6" />
+                </Link>
               </div>
             </div>
-
-            <div className="flex flex-col items-center">
-              <img alt="" src={four} className="lg:w-40 lg:h-40 w-3/4" />
-              <h3 className="text-[12px] font-[500] lg:text-[16px] md:text-[16px]">
-                Olatunji David
-              </h3>
-              <h4 className="text-blue-400 text-[10px] font-[400] lg:text-[14px] md:text-[14px]">
-                Frontend PM Lead
-              </h4>
-              <div className="mt-4 flex flex-row gap-4">
-                <img alt="" src={tw} className="w-2/4 h-2/4" />
-                <img alt="" src={ln} className="w-2/4 h-2/4" />
-                <img alt="" src={fb} className="w-2/4 h-2/4" />
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center lg:mt-0 mt-12">
-              <img alt="" src={five} className="lg:w-40 lg:h-40 w-3/4" />
-              <h3 className="text-[12px] font-[500] lg:text-[16px] md:text-[16px]">
-                AbdulMuizz Ikumapayi
-              </h3>
-              <h4 className="text-blue-400 text-[10px] font-[400] lg:text-[14px] md:text-[14px]">
-                Backend Track Lead
-              </h4>
-              <div className="mt-4 flex flex-row gap-4">
-                <img alt="" src={tw} className="w-2/4 h-2/4" />
-                <img alt="" src={ln} className="w-2/4 h-2/4" />
-                <img alt="" src={fb} className="w-2/4 h-2/4" />
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center lg:mt-0 mt-12">
-              <img alt="" src={two} className="lg:w-40 lg:h-40 w-3/4" />
-              <h3 className="text-[12px] font-[500] lg:text-[16px] md:text-[16px]">
-                Amogbe Idowu Esther
-              </h3>
-              <h4 className="text-blue-400 text-[10px] font-[400] lg:text-[14px] md:text-[14px]">
-                Sales & Marketing PM Lead
-              </h4>
-              <div className="mt-4 flex flex-row gap-4">
-                <img alt="" src={tw} className="w-2/4 h-2/4" />
-                <img alt="" src={ln} className="w-2/4 h-2/4" />
-                <img alt="" src={fb} className="w-2/4 h-2/4" />
-              </div>
-            </div>
+            ))}
           </div>
-          <div className="lg:flex lg:flex-row grid grid-cols-2 lg:gap-36 mt-12 gap-2 md:gap-6">
-            <div className="flex flex-col items-center">
-              <img
-                alt=""
-                src={seven}
-                className="lg:w-40 lg:h-40 w-3/4 md:w-5/6"
-              />
-              <h3 className="text-[12px] font-[500] lg:text-[16px] md:text-[16px]">
-                Emmanuel Job
-              </h3>
-              <h4 className="text-blue-400 text-[10px] font-[400] lg:text-[14px] md:text-[14px]">
-                Design Track Lead
-              </h4>
-              <div className="mt-4 flex flex-row gap-4">
-                <img alt="" src={tw} className="w-2/4 h-2/4" />
-                <img alt="" src={ln} className="w-2/4 h-2/4" />
-                <img alt="" src={fb} className="w-2/4 h-2/4" />
-              </div>
-            </div>
 
-            <div className="flex flex-col items-center">
-              <img
-                alt=""
-                src={eight}
-                className="lg:w-40 lg:h-40 w-3/4 md:w-5/6"
-              />
-              <h3 className="text-[12px] font-[500] lg:text-[16px] md:text-[16px]">
-                Queenette oluchi
+          <div className="grid grid-cols-2 lg:grid-flow-col items-center gap-4 lg:gap-20">
+            {teams.map((person)=>(
+              <div className="flex flex-col gap-1 items-center">
+              <img alt="" src={person.avatar} className="lg:w-40 lg:h-40 w-3/4" />
+              <h3 className="text-xs font-medium md:text-base">
+                {person.name}
               </h3>
-              <h4 className="text-blue-400 text-[10px] font-[400] lg:text-[14px] md:text-[14px]">
-                Sales & Marketing Track Lead
+              <h4 className="text-blue-400 text-[10px] md:text-sm">
+                {person.position}
               </h4>
               <div className="mt-4 flex flex-row gap-4">
-                <img alt="" src={tw} className="w-2/4 h-2/4" />
-                <img alt="" src={ln} className="w-2/4 h-2/4" />
-                <img alt="" src={fb} className="w-2/4 h-2/4" />
+                <Link to="#" className="hover:scale-125">
+                  <img alt="twitter logo" src={tw} className="w-6" />
+                </Link>
+                <Link to="#" className="hover:scale-125">
+                  <img alt="linkedin logo" src={ln} className="w-6" />
+                </Link>
+                <Link to="#" className="hover:scale-125">
+                  <img alt="facebook logo" src={fb} className="w-6" />
+                </Link>
               </div>
             </div>
-
-            <div className="flex flex-col items-center mb-8 ">
-              <img
-                alt=""
-                src={nine}
-                className="lg:w-40 lg:h-40 w-3/4 md:w-5/6"
-              />
-              <h3 className="text-[12px] font-[500] lg:text-[16px] md:text-[16px]">
-                hakeem Abdurahmon
-              </h3>
-              <h4 className="text-blue-400 text-[10px] font-[400] lg:text-[14px] md:text-[14px]">
-                Frontend Track Lead
-              </h4>
-              <div className="mt-4 flex flex-row gap-4">
-                <img alt="" src={tw} className="w-2/4 h-2/4" />
-                <img alt="" src={ln} className="w-2/4 h-2/4" />
-                <img alt="" src={fb} className="w-2/4 h-2/4" />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
