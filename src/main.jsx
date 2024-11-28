@@ -36,6 +36,7 @@ import { UserProvider } from "./Store/Context";
 import AccountReport from "./pages/Dashboard/AccountReport/AccountReport";
 import DashboardMain from "./pages/Dashboard/DashboardMain/DashboardMain";
 import Privacy from "./pages/Privacy";
+import NotFound from "./pages/NotFound"
 // import ScrollToTop from './components/ScrollToTop';
 // import ImportData from './pages/Dashboard/ImportData/Hero/ImportData';
 // import {
@@ -174,6 +175,10 @@ const router = createBrowserRouter([
   {
     path: "/privacy",
     element: <Privacy />,
+  },
+  {
+    path: "/*",
+    element: <NotFound />,
   },
   // {
   // 	path: '/settings',
