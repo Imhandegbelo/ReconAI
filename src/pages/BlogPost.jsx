@@ -1,27 +1,61 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import BlogPreview from "../components/BlogPreview";
-import { otherPost } from "../data/blogData";
 import NavigationBar from "../components/NavigationBar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import {
+  FaXTwitter,
+  FaFacebookF,
+  FaLinkedinIn,
+  FaArrowRightLong,
+  FaArrowLeftLong,
+  FaCopy,
+} from "react-icons/fa6";
+import { blogList, otherPost } from "../data/blogData";
 
 function BlogPost() {
+  // const location = useLocation()
+  const param = useParams();
+  const [content, setContent] = useState({});
+
+  const getContent = (slug) => {
+    let title = slug.replaceAll("-", " ");
+    let content = blogList.filter((item) => title == item.title.toLowerCase());
+    if (content[0]) {
+      return content[0];
+    } else {
+      return otherPost.filter((item) => title == item.title.toLowerCase())[0];
+    }
+  };
+
+  const copyContent = () => {
+    navigator.clipboard.writeText(document.URL);
+    window.alert("Link copied to clipboard");
+  };
+
+  console.log("Record", getContent(param.slug));
+
+  useEffect(() => {
+    setContent(getContent(param.slug));
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, [param]);
+
   return (
-    <>
+    <div className="max-w-[1440px] mx-auto">
       <ScrollToTop />
       <NavigationBar />
-      <div className=" px-[72px] max-[675px]:px-6">
+      <div className="px-16 max-[675px]:px-6">
         <div className="flex flex-col justify-center items-center mt-[50px] md:mt-[102px] mb-[72px]">
-          <h1 className=" font-semibold text-[56px] md:leading-[70px] text-[#101828] text-center max-w-[20ch] max-[675px]:text-[36px]">
-            3 Effective Debt Management Practices
+          <h1 className="font-semibold text-[56px] md:leading-[70px] text-[#101828] text-center max-w-[20ch] max-[675px]:text-4xl">
+            {content.title}
           </h1>
           <p className="font-semibold text-base leading-6 text-[#667085] text-center">
-            Published 20 Jan 2022
+            Published {content.dateCreated}
           </p>
         </div>
-        <div className=" mb-[67px] w-full">
-          <p className="font-normal text-[20px] leading-[35px] text-[#667085] mb-12 max-[675px]:text-base max-[675px]:leading-[25px]">
+        <div className="mb-[67px] w-full">
+          <p className="font-normal text-xl leading-[35px] text-[#667085] mb-12 max-[675px]:text-base max-[675px]:leading-[25px]">
             Debt can be beneficial to your company when managed properly.
             However, if neglected or improperly managed, it may destroy you. We
             have worked with a variety of companies across a wide range of
@@ -31,18 +65,18 @@ function BlogPost() {
           </p>
           <img
             className="w-full md:w-[90%] lg:w-[80%] h-[400px] mx-auto object-contain "
-            src="../assets/images/blog/dummyBlogThumb.svg"
+            src={content.thumbnail}
             alt="thumbnail"
           />
         </div>
         <div className="flex flex-col gap-12 mb-[30px]">
           <p className="font-normal leading-[30px] text-lg text-[#667085] max-[675px]:text-base max-[675px]:leading-[25px]">
             Effective use of and management of debt is a critical component of a
-            business success. While it is true that there are &quot;good&quot;
-            types of debt, all liabilities necessitate constant monitoring.
-            Small businesses operating under a company structure should be aware
-            that the directors have a legal responsibility to make sure that the
-            company&apos;s debts can be paid as and when they become due. Those
+            business success. While it is true that there are 'good' types of
+            debt, all liabilities necessitate constant monitoring. Small
+            businesses operating under a company structure should be aware that
+            the directors have a legal responsibility to make sure that the
+            company's debts can be paid as and when they become due. Those
             conducting business under an unincorporated structure are ultimately
             personally responsible for the debts of the business.
             <br />
@@ -58,11 +92,11 @@ function BlogPost() {
           </p>
           <div>
             <h3 className=" font-semibold text-[28px] text-[#101828] leading-snug max-[675px]:text-[20px] max-[675px]:leading-[25px] ">
-              1. Reconsider your Company&apos;s Budget
+              1. Reconsider your Company's Budget
             </h3>
             <p className="font-normal leading-[30px] text-lg text-[#667085] max-[675px]:text-base max-[675px]:leading-[25px]">
               Gather as much information as you can about your current financial
-              status before attacking your company&quot;s debt. Business owners
+              status before attacking your company's debt. Business owners
               frequently take this action after falling behind on their monthly
               payments. To offer yourself extra room in your budget, take a look
               at your previous financial strategy. Your income streams, variable
@@ -88,7 +122,7 @@ function BlogPost() {
               <ul className="font-normal leading-[30px] text-lg text-[#667085] max-[675px]:text-base max-[675px]:leading-[25px]">
                 <li>
                   &#x2022; Measurement and forecasting can help you stay on top
-                  of your company&apos;s cash flow and projected cash needs by
+                  of your company's cash flow and projected cash needs by
                   comparing actual outcomes to your budget, comprehending and
                   addressing any deviations, and regularly adjusting
                   predictions.
@@ -120,23 +154,22 @@ function BlogPost() {
               as PAYGW, GST, and income tax.
               <br />
               <br />
-              It&apos;s crucial to be aware that some obligations may have
-              severe repercussions for late payment. For instance, employer
-              Super Guarantee contributions are typically required to be made to
-              each employee&apos;s chosen fund by 28 days following the end of
-              each quarter, and there are heavy ATO penalties that apply for
-              missing this deadline by even one day (via the Super Guarantee
-              Charge).
+              It's crucial to be aware that some obligations may have severe
+              repercussions for late payment. For instance, employer Super
+              Guarantee contributions are typically required to be made to each
+              employee's chosen fund by 28 days following the end of each
+              quarter, and there are heavy ATO penalties that apply for missing
+              this deadline by even one day (via the Super Guarantee Charge).
             </p>
           </div>
-          <div className="bg-[#F2F4F7] rounded-2xl  max-[675px]:px-2 max-[675px]:py-2">
-            <h3 className=" font-semibold text-[28px] mt-3 text-[#101828] leading-snug mb-6 max-[675px]:text-2xl max-[675px]:text-[20px]">
+          <div className="bg-[#F2F4F7] rounded-2xl p-6 max-[675px]:px-4 max-[675px]:py-2">
+            <h3 className="font-semibold text-[28px] text-[#101828] leading-snug mb-6 max-[675px]:text-2xl max-[675px]:text-[20px]">
               Conclusion
             </h3>
-            <p className="font-normal leading-[30px] text-lg text-[#667085] pb-2 max-[675px]:text-base max-[675px]:leading-[25px]">
-              In conclusion, don&apos;t wait until your business hits a
-              financial crisis. If you feel that your debt has become unwieldy
-              or worrisome, reach out to professionals to rescue the situation.
+            <p className="font-normal leading-[30px] text-lg text-[#667085] max-[675px]:text-base max-[675px]:leading-[25px]">
+              In conclusion, don't wait until your business hits a financial
+              crisis. If you feel that your debt has become unwieldy or
+              worrisome, reach out to professionals to rescue the situation.
             </p>
           </div>
           <div>
@@ -146,13 +179,13 @@ function BlogPost() {
                 <figure className="w-10 h-10 ">
                   <img
                     className="w-full rounded-full "
-                    src="../assets/images/avatar-full.svg"
+                    src={content.avatarImage}
                     alt=""
                   />
                 </figure>
                 <div>
-                  <h5 className=" leading-[18px] text-sm font-semibold text-[#101828]">
-                    Olivia Rhye
+                  <h5 className="leading-[18px] text-sm font-semibold text-[#101828]">
+                    {content.author}
                   </h5>
                   <p className="text-[#667085] leading-[23px] text-sm font-normal">
                     Financial Analyst
@@ -161,46 +194,34 @@ function BlogPost() {
               </div>
               <div className="flex gap-3">
                 <button
-                  type="button"
-                  className=" text-[#344054] px-4 py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD] whitespace-nowrap"
+                  onClick={copyContent}
+                  className="text-[#344054] px-4 h-10 flex items-center gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border whitespace-nowrap"
                 >
-                  <img src="../assets/copy.svg" alt="" /> Copy Link
+                  <FaCopy /> Copy Link
                 </button>
-                <div className=" w-10 h-10 cursor-pointer text-[#344054] px-[10px] py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD]">
-                  <img
-                    className="w-full"
-                    src="../assets/images/blog/twitter.svg"
-                    alt=""
-                  />
-                </div>
-                <div className=" w-10 h-10 cursor-pointer text-[#344054] px-[10px] py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD]">
-                  <img
-                    className="w-full"
-                    src="../assets/images/blog/fb.svg"
-                    alt=""
-                  />
-                </div>
-                <div className=" w-10 h-10 cursor-pointer text-[#344054] px-[10px] py-[10px] flex gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border-solid  border-[1px] border-[#D0D5DD]">
-                  <img
-                    className="w-full"
-                    src="../assets/images/blog/linkedin.svg"
-                    alt=""
-                  />
-                </div>
+                <button className="w-10 h-10 cursor-pointer text-[#344054] flex items-center justify-center gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border">
+                  <FaXTwitter />
+                </button>
+                <button className="w-10 h-10 cursor-pointer text-[#344054] flex items-center justify-center gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border">
+                  <FaFacebookF />
+                </button>
+                <button className="w-10 h-10 cursor-pointer text-[#344054] flex items-center justify-center gap-2 rounded-lg shadow-[0px_1px_2px_rgba(16,24,40,0.05)] border">
+                  <FaLinkedinIn />
+                </button>
               </div>
             </div>
           </div>
           <div>
-            <hr className=" border-solid border-[1px] border-[#EAECF0] mb-[30.5px]" />
-            <div className="flex justify-between items-center mb-[10.5px] mx-[21px]">
-              <div className=" cursor-pointer text-[#667085] flex gap-2">
-                <img src="../assets/images/blog/arrow-left.svg" alt="" />
+            <hr className=" border border border-[#EAECF0] mb-[30.5px]" />
+            <div className="flex justify-between items-center text-[#667085] mb-2 mx-9">
+              <button className="flex items-center gap-2 py-1 px-2 rounded-lg hover:border hover:border-black">
+                <FaArrowLeftLong />
                 Previous
-              </div>
-              <div className=" cursor-pointer text-[#667085] flex gap-2">
+              </button>
+              <button className="flex items-center gap-2 py-1 px-2 rounded-lg hover:border hover:border-black">
                 Next
-                <img src="../assets/images/blog/arrow-right.svg" alt="" />
-              </div>
+                <FaArrowRightLong />
+              </button>
             </div>
           </div>
         </div>
@@ -218,7 +239,6 @@ function BlogPost() {
                 <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
                   <BlogPreview
                     key={blogs?.id}
-                    slug={blogs?.slug}
                     title={blogs?.title}
                     category={blogs?.category}
                     highlight={blogs?.higlight}
@@ -241,7 +261,7 @@ function BlogPost() {
         </Link>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -9,10 +9,10 @@ import ScrollToTop from "../components/ScrollToTop";
 
 function Blogs() {
   return (
-    <>
+    <div className="max-w-[1440px] mx-auto">
       <ScrollToTop />
       <NavigationBar />
-      <div className=" md:bg-[#D1E9FF] pt-6 md:pt-16 pb-16">
+      <div className="md:bg-[#D1E9FF] pt-6 md:pt-16 pb-16">
         <h1 className="text-[#101828] font-semibold leading-[60px] text-4xl md:text-5xl text-center pb-3 md:pb-6">
           Our Blog
         </h1>
@@ -33,7 +33,6 @@ function Blogs() {
                   // <div className=" w-[30%] max-lg:w-[46%] max-md:w-full max-sm:w-full">
                   <BlogPreview
                     key={blogs?.id}
-                    slug={blogs?.slug}
                     title={blogs?.title}
                     category={blogs?.category}
                     highlight={blogs?.higlight}
@@ -59,7 +58,7 @@ function Blogs() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

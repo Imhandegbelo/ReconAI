@@ -65,7 +65,7 @@ function Teams() {
   ];
 
   return (
-    <div className="font-lexend">
+    <div className="font-lexend max-w-[1440px] mx-auto">
       <ScrollToTop />
       <Navbar />
       <div className="px-9 md:px-14 lg:px-20 py-8">

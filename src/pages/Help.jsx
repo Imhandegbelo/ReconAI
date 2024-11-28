@@ -6,7 +6,7 @@ import ScrollToTop from "../components/ScrollToTop";
 
 function Help() {
   return (
-    <div>
+    <div className="max-w-[1440px] mx-auto">
       <ScrollToTop />
       <NavigationBar />
       <div className="w-full text-[#101828]">

@@ -62,7 +62,7 @@ export const blogList = [
 	},
 	{
 		id: 5,
-		title: 'How to Overcome Impulsive Spending',
+		title: 'How to Overcome Impulsive Spendings',
 		category: 'Lifestyle',
 		higlight: 'Learn how to overcome random expenses and impulsive spendings.',
 		author: 'Demi Wilkinson',
@@ -83,7 +83,7 @@ export const blogList = [
 	},
 	{
 		id: 7,
-		title: '3 Effective Debt Management Practices',
+		title: '3 Effective Debt Management Practice',
 		category: 'Business',
 		higlight:
 			'What steps can be taken to ensure that a business doesn’t end up having to file for bankruptcy? Find out in this article.',
@@ -116,8 +116,8 @@ export const blogList = [
 
 export const otherPost = [
 	{
-		id: 4,
-		title: '5 Steps to Preventing Expense Fraud',
+		id: 14,
+		title: '5 Steps to Preventing Expense Frauds',
 		category: 'Fraud',
 		higlight: 'Actionable Steps to prevent fraud among  employees.',
 		author: 'Alec Whitten',
@@ -126,7 +126,7 @@ export const otherPost = [
 		thumbnail: tn4,
 	},
 	{
-		id: 5,
+		id: 67,
 		title: 'How to Overcome Impulsive Spending',
 		category: 'Lifestyle',
 		higlight: 'Learn how to overcome random expenses and impulsive spendings.',
@@ -136,7 +136,7 @@ export const otherPost = [
 		thumbnail: tn5,
 	},
 	{
-		id: 6,
+		id: 69,
 		title: 'A Business Owners Accounting Checklist',
 		category: 'Accounting',
 		higlight:

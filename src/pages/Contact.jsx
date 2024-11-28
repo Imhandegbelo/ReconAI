@@ -17,7 +17,7 @@ const ContactUs = () => (
             Get in Touch
           </h1>
           <p className="font-normal text-base pb-2 text-gray-500">
-            Would you like to have a chat with us about Account Pal?
+            Would you like to have a chat with us about ReconcileAI?
           </p>
 
           <p className="font-normal text-base pb-2 text-gray-500">

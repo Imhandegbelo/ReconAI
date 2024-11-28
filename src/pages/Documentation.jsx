@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 
 const Documentation = () => (
-  <div className="text-gray-800 bg-white ">
+  <div className="text-gray-800 bg-white max-w-[1440px] mx-auto">
     <ScrollToTop />
     <NavigationBar />
     <header className="header bg-[#2E90FA] md:bg-[#D7DBDF] text-white md:text-[#101828] shadow py-4 px-4">
