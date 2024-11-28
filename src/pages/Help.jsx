@@ -12,9 +12,9 @@ function Help() {
       <div className="w-full text-[#101828]">
         {/* Hero Section  */}
         <div className="w-full bg-[#F2F4F7] py-12">
-          <div className="w-[90%] lg:w-[80%] mx-auto lg:flex lg:justify-between lg:gap-12 ">
-            <div className="py-auto lg:w-6/12">
-              <h1 className="text-[1.2em] md:2xl font-semibold mb-2 lg:text-[40px] lg:leading-[50px] lg:mb-6">
+          <div className="w-[90%] lg:w-[80%] mx-auto flex flex-col md:flex-row gap-6 lg:gap-12 ">
+            <div className="py-auto md:w-full lg:w-6/12">
+              <h1 className="text-[1.2em] md:text-2xl font-semibold mb-2 lg:text-[40px] lg:mb-6">
                 Help Desk Software
               </h1>
               <p className="text-justify md:text-lg   lg:leading-[200%]">
@@ -28,7 +28,7 @@ function Help() {
               </p>
             </div>
 
-            <div className="hidden lg:flex lg:w-4/12">
+            <div className="hidde/n order-first md:order-last md:w-full lg:flex lg:w-4/12">
               <img src={heroImage} alt="helpImage" className="w-full " />
             </div>
           </div>
@@ -38,7 +38,7 @@ function Help() {
         <div className="w-[90%] lg:w-[80%] mx-auto py-12">
           <div className="">
             <div className="lg:my-3 pt-12">
-              <h1 className="text-xl lg:text-3xl mb-4 font-semibold lg:my-3">
+              <h1 className="text-xl md:text-2xl lg:text-3xl mb-4 font-semibold lg:my-3">
                 Support customers across channels.
               </h1>
               <p className="text-justify lg:text-lg leading-[200%] my-3">
@@ -55,7 +55,7 @@ function Help() {
             </div>
 
             <div className="lg:my-3 pt-12">
-              <h1 className="text-xl lg:text-3xl mb-4 font-semibold lg:my-3">
+              <h1 className="text-xl md:text-2xl lg:text-3xl mb-4 font-semibold lg:my-3">
                 Manage cases quickly
               </h1>
               <p className="text-justify lg:text-lg leading-[200%] my-3">
@@ -81,7 +81,7 @@ function Help() {
             </div>
 
             <div className="lg:my-3 pt-12">
-              <h1 className="text-xl lg:text-3xl mb-4 font-semibold lg:my-6">
+              <h1 className="text-xl md:text-2xl lg:text-3xl mb-4 font-semibold lg:my-6">
                 Help customers help themselves
               </h1>
               <p className="text-justify lg:text-lg leading-[200%] my-3">
