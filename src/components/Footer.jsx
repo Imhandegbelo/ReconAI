@@ -7,7 +7,7 @@ import logoUpdate from "../assets/logoUpdate.svg";
 const aboutUsData = [
   {
     name: "Our Mission",
-    path: "/history",
+    path: "",
   },
   {
     name: "Our Team",
@@ -30,10 +30,6 @@ const resourcesData = [
   {
     name: "Blog",
     path: "/blogs",
-  },
-  {
-    name: "FAQs",
-    path: "",
   },
 ];
 

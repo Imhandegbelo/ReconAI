@@ -12,8 +12,8 @@ export default function FaqComponent() {
           onClick={() =>
             index === isOpen ? setIsOpen(-1) : setIsOpen(index)
           } className="flex items-center text-base justify-between">
-            <p>{faq.question}</p>
-            <button
+            <p id="question">{faq.question}</p>
+            <button aria-haspopup="menu" aria-expanded={isOpen}
               onClick={() =>
                 index === isOpen ? setIsOpen(-1) : setIsOpen(index)
               }
@@ -23,6 +23,7 @@ export default function FaqComponent() {
             </button>
           </div>
           <div
+          aria-describedby="question"
             className={`${
               isOpen === index ? "block text-gray-600 text-base py-2 mb-2" : "hidden"
             }`}

@@ -205,7 +205,7 @@ export default function LandingPage() {
 
         <img
           src={cuttingImage}
-          alt="Dashboard"
+          alt="Image showing reconcileAI Dashboard"
           // className="hidden md:flex"
         />
         {/* <img

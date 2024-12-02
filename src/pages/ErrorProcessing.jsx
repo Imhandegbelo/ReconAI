@@ -1,4 +1,4 @@
-import React from 'react';
+import {Link} from 'react-router-dom';
 import { FaGreaterThan } from 'react-icons/fa';
 import DashBoardSideBar from '../components/DashBoardSideBar';
 import DashBoardHeader from '../components/DashBoardHeader';
@@ -47,12 +47,12 @@ const ErrorProcessing = () => (
 							<div className="bg-blue-600 h-5 rounded-full w-10"> </div>
 						</div>
 					</div>
-					<a
-						href="/processingerror"
+					<Link
+						to="/processingerror"
 						className="flex items-center p-2 mt-3 sm:mx-auto rounded bg-[#1570EF] text-white"
 					>
 						cancel
-					</a>
+					</Link>
 				</div>
 			</main>
 		</div>
